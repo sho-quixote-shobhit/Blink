@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') %>
+
+<div>
+    <h1 class="text-center mb-2"><%=username.toUpperCase()%></h1>
+    <h5 class="text-center">All Artists</h5>
+</div>
+
+<div class="row">
+    <% if(artists.length){ %>
+        <% artists.forEach((artist)=>{ %>
+
+            <div class="col-lg-4 mb-3">
+                <div class="card">
+                    <img src="<%=artist.artist_image%>" alt="">
+                    <div class="card-body text-center">
+                        <h3 class="card-title text-center">
+                            <%= artist.artist_name %>
+                        </h3>
+                        <form action="/profile/<%=artist._id %>/watched">
+                            <button class="btn btn-outline-danger m-2">Watched Songs</button>
+                        </form>
+                        <form action="/profile/<%=artist._id%>/towatch">
+                            <button class="btn btn-outline-secondary m-2">ToWatch Songs</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+        <% }) %>
+    <% }else{ %>
+        <div class="text-center">
+            <h4>So Empty!!</h4>
+            <form action="/">
+                <button class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    <% } %>
+</div>

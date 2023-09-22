@@ -1,0 +1,27 @@
+<nav class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="/">BLINK</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <% if(!currentuser){ %>
+        <form class="d-flex" action="/login">
+            <button class="btn btn-outline-light mx-2 my-2" type="submit">Login</button>
+          </form>
+        <form class="d-flex" action="/signup">
+          <button class="btn btn-outline-light mx-2 my-2" type="submit">Sign Up</button>
+        </form>
+      <% } else {%>
+        <form class="d-flex" action="/profile" >
+          <button class="btn btn-outline-light mx-2 my-2">Profile</button>
+        </form>
+        <form class="d-flex" action="/logout" method="post">
+          <button class="btn btn-outline-light mx-2 my-2" type="submit">Log Out</button>
+        </form>
+      <% } %>
+      </div>
+    </div>
+  </nav>

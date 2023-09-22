@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="row">
+        <div class="col-1">
+            <a class="btn btn-outline-secondary btn-lg" href="/artists/<%=song.artist_name%>"><-</a>
+        </div>
+        <div class="col-6 offset-2">
+            <div class="card mb-3">
+                <img src="<%=song.image%>" class="card-img-top" alt="song image here">
+                <div class="card-body">
+                    <h3 class="card-title pb-3">
+                        <%=song.title%>
+                    </h3>
+                    <ul class="list-group list-group-flush">
+                        <h4 class="card-subtitle pb-3">
+                            <%=song.channelTitle%>
+                        </h4>
+                    </ul>
+                    <p class="card-text">
+                        <%=song.time%>
+                    </p>
+                    <form action="/artists/<%=song.artist_name%>/watch/<%=song.videoId%>" method="post">
+                        <button class="btn btn-primary" type="submit">Video</button>
+                    </form>
+                    <form action="/artists/<%=song.artist_name%>/<%=song._id%>/watched" method="post">
+                        <div class="d-grid gap-2 col-4  mb-2 mt-2">
+                            <button class="btn btn-outline-danger" type="submit">Watched </button>
+                        </div>
+                    </form>
+                    <form action="/artists/<%=song.artist_name%>/<%=song._id%>/towatch" method="post">
+                        <div class="d-grid gap-2 col-4  mb-2 mt-2">
+                            <button class="btn btn-outline-secondary" type="submit">ToWatch</button>
+                        </div>
+                    </form>
+                                            
+                </div>
+            </div>
+        </div>
+    </div>
